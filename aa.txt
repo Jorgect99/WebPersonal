@@ -2,3 +2,6 @@ Vista
 logica que se ejecuta cuando se hace una peticion a nuestra web
 
 request.path para ver la url en la que esta
+
+backend
+parte oculta que da dinamismo a al frontend.
