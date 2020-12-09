@@ -5,3 +5,6 @@ request.path para ver la url en la que esta
 
 backend
 parte oculta que da dinamismo a al frontend.
+
+project.image.url
+para la url de la imagen.
