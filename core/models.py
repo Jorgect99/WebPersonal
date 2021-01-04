@@ -22,7 +22,7 @@ class About(models.Model):
     name = models.CharField(max_length = 120, verbose_name = "Nombre")
     content = RichTextField(verbose_name = "Descripcion")
     img = models.ImageField(upload_to = "about" ,verbose_name = "Imagen")
-    skill = models.ForeignKey(Skill, on_delete=models.CASCADE, blank=True,null=True)
+    skills = models.ManyToManyField(Skill, blank=True,null=True)
 
     created = models.DateTimeField(auto_now_add=True, verbose_name = "Fecha de creacion")
     updated = models.DateTimeField(auto_now = True, verbose_name = "Fecha de edicion")
