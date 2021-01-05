@@ -11,29 +11,48 @@
 {% endblock %}
 
 {% block content %}
-    <style>.skill-images{width:40px;height:40px}.skill-list{list-style:none;text-align: center;}.skill{float:left; font-family:Courier New;font-style:bold}</style>
-    <div class="container">
-        <div class="row">   
+<style>
+    .skill-images {
+        width: 40px;
+        height: 40px
+    }
+    
+    .skill-list {
+        list-style: none;
+        text-align: center;
+    }
+    
+    .skill {
+        float: left;
+        font-family: Courier New;
+        font-style: bold
+    }
+</style>
+
+<div class="container">
+    {% for object in about %}
+        <div class="row">
             <div class="col-lg-3 col-md-4 offset-lg-1">
-                <img class="img-fluid avatar" src="{{ about.img.url }}" alt="">
+                <img class="img-fluid avatar" src="{{ object.img.url }}" alt="">
             </div>
             <div class="col-lg-7 col-md-8">
-                <h2 class="section-heading">{{ about.name }}</h2>   
-                <p class="mt-4">{{ about.content|safe }}</p>
+                <h2 class="section-heading">{{ object.name }}</h2>
+                <p class="mt-4">{{ object.content|safe }}</p>
             </div>
-        </div> 
-        <div class="row">   
+        </div>
+        <div class="row">
             <div class="col-lg-12 col-md-12 mt-3 div-skill">
-                <h3 class="text-center">Skills</h3>   
+                <h3 class="text-center">Skills</h3>
                 <ul class="skill-list">
-                {% for skill in skills %}
-                    <li class="skill mt-3 ml-3">
-                    <img src="{{ skill.img.url }}" class="skill-images" alt="">
-                    <span class="section-heading-lower">{{ skill.name }}</span>
-                    </li>
-                {% endfor %}
-                </ul>  
+                    {% for skill in object.skills.all %}
+                        <li class="skill mt-3 ml-3">
+                            <img src="{{ skill.img.url }}" class="skill-images" alt="">
+                            <span class="section-heading-lower">{{ skill.name }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-        </div>    
-    </div>    
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -7,9 +7,8 @@ def home(request):
     return render(request, 'core/home.html')
 
 def about(request):
-    about = About.objects.get(name="Jorge Cabral")
-    skills = Skill.objects.all()
-    return render(request, 'core/about-me.html',{'about':about,'skills':skills})
+    about = About.objects.all()
+    return render(request, 'core/about-me.html',{'about':about})
 
 def contact(request):
     return render(request, 'core/contact.html')
